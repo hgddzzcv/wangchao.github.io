@@ -1,2 +1,55 @@
 <head></head>
-<body>my blog</body>
+<body>
+	
+   /**题干参考leetcode 3sum */
+   public class myClass {
+      public static void main(String[] args) {
+//       Integer[] arr = {-1, 2, 3, -3, 0, 1};
+         Integer[] arr = {-1, 2, -1, 1, 0, 4};
+         List<List<Integer>> src = new ArrayList<>();
+         List<Integer> integers = Arrays.asList(arr);
+         Arrays.sort(arr);
+         for (int i = 0; i < arr.length ; i++) {
+            for (int j = i+1; j < arr.length ; j++) {
+                for (int k = j+1; k < arr.length; k++) {
+                    if(arr[i] + arr[j] + arr[k] == 0){
+                        List<Integer> temp = new ArrayList<>();
+                        temp.add(integers.get(i));
+                        temp.add(integers.get(j));
+                        temp.add(integers.get(k));
+                        src.add(temp);
+                    }
+                }
+            }
+        }
+
+        //结果集
+        List<List<Integer>> answer = new ArrayList<>();
+        //去重
+        answer(src,answer);
+        for (int i = 0; i < answer.size(); i++) {
+            System.out.println(answer.get(i).get(0) + "," + answer.get(i).get(1) + ","
+                    + answer.get(i).get(2));
+        }
+
+     }
+
+     public static void   answer(List<List<Integer>> solutions, List<List<Integer>> answer){
+
+        List<Integer> solution = solutions.get(0);
+        answer.add(solution);
+        solutions.remove(0);
+        ListIterator<List<Integer>> listListIterator = solutions.listIterator();
+        while (listListIterator.hasNext()){
+            List<Integer> next = listListIterator.next();
+            if(solution.get(0) == next.get(0) && solution.get(1) ==
+                    next.get(1) && solution.get(2) == next.get(2)){
+                listListIterator.remove();
+            }
+        }
+        if (solutions.isEmpty())return;
+        answer(solutions,answer);
+    }
+}
+
+</body>
