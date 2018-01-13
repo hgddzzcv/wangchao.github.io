@@ -112,7 +112,7 @@ HOME SECTION
 	height: 100vh;
 	min-height: 568px;
 	max-height: 1050px;
-	background: linear-gradient( rgba(19, 19, 22, 0.5), rgba(19, 19, 22, 0.5)), url('../img/header_bg.jpg');
+	background: linear-gradient( rgba(19, 19, 22, 0), rgba(19, 19, 22, 0)), url('../img/header_bg.jpg');
 	background-position: top left;
 	background-repeat: no-repeat;
 	background-size: cover;
